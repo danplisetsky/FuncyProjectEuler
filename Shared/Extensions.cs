@@ -11,6 +11,11 @@ namespace Shared
         public static bool IsEven(this int x) =>
             x % 2 == 0;
 
+        public static bool IsPalindrome(this int x) =>
+            x.ToString()
+            .SequenceEqual(
+                x.ToString().Reverse());
+
         #endregion int
 
         #region long

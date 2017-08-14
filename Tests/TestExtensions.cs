@@ -78,5 +78,15 @@ namespace Tests
 
             Assert.AreEqual(result, 5);
         }
+
+        [TestMethod]
+        public void IsPalindrome()
+        {
+            int n = 1234321;
+
+            bool result = n.IsPalindrome();
+
+            Assert.IsTrue(result);
+        }
     }
 }
