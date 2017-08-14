@@ -72,11 +72,11 @@ namespace Tests
         [TestMethod]
         public void GetPrimeFactors()
         {
-            long n = 10;
+            long n = 13195;
 
             long result = n.GetPrimeFactors().Last();
 
-            Assert.AreEqual(result, 5);
+            Assert.AreEqual(result, 29);
         }
 
         [TestMethod]

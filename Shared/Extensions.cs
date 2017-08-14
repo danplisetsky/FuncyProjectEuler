@@ -9,19 +9,25 @@ namespace Shared
         #region int 
 
         public static bool IsEven(this int x) =>
-            x % 2 == 0;
+            x.IsEvenlyDivisibleBy(2);
 
         public static bool IsPalindrome(this int x) =>
             x.ToString()
             .SequenceEqual(
                 x.ToString().Reverse());
 
+        public static bool IsEvenlyDivisibleBy(this int x, int divisor) =>
+            x % divisor == 0;
+
         #endregion int
 
         #region long
 
         public static bool IsEven(this long x) =>
-            x % 2 == 0;
+           x.IsEvenlyDivisibleBy(2);
+
+        public static bool IsEvenlyDivisibleBy(this long x, long divisor) =>
+           x % divisor == 0;
 
         public static bool IsPrime(this long x) =>
             x <= 1
@@ -29,7 +35,7 @@ namespace Shared
                 : x <= 3
                     ? true
                     : !StrangeEnumerable.RangeTwoAndOdd(x.GetCeiling())
-                    .Any(n => x % n == 0);
+                    .Any(n => x.IsEvenlyDivisibleBy(n));
 
 
         private static long GetCeiling(this long x) =>
@@ -37,7 +43,7 @@ namespace Shared
 
         public static IEnumerable<long> GetPrimeFactors(this long x) =>
             StrangeEnumerable.RangePrimes(x.GetCeiling())
-            .Where(n => x % n == 0)
+            .Where(n => x.IsEvenlyDivisibleBy(n))
             .SelectMany(n => (x / n).IsPrime() ? new[] { n, x / n } : new[] { n });
         /* Since we're only checking the numbers from x to sqrt of x (in RangePrimes),
          * it's necessary to also check the quotient for being a prime number,
