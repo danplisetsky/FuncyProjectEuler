@@ -24,7 +24,7 @@ namespace pn6
         }
 
         private static double DifferenceBetweenPowerOfTheSumAndSumOfThePower(int pow, int count) =>
-            PowerOfTheSum(POW)(COUNT) - SumOfThePower(POW)(COUNT);
+            PowerOfTheSum(pow)(count) - SumOfThePower(pow)(count);
 
         private static Func<int, double> SumOfThePower(int pow) =>
             count =>
