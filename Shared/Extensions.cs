@@ -19,6 +19,9 @@ namespace Shared
         public static bool IsEvenlyDivisibleBy(this int x, int divisor) =>
             x % divisor == 0;
 
+        public static double Pow(this int x, int pow) =>
+            Math.Pow(x, pow);
+
         #endregion int
 
         #region long

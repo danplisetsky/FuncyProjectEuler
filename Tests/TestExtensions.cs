@@ -91,5 +91,15 @@ namespace Tests
 
             Assert.IsTrue(result);
         }
+
+        [TestMethod]
+        public void IntToPow()
+        {
+            int n = 2, pow = 8;
+
+            double result = n.Pow(pow);
+
+            Assert.AreEqual(result, 256);
+        }
     }
 }
