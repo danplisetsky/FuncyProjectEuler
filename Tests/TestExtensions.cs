@@ -73,10 +73,13 @@ namespace Tests
         public void GetPrimeFactors()
         {
             long n = 13195;
+            long n1 = 4;
 
             long result = n.GetPrimeFactors().Last();
+            int result1 = n1.GetPrimeFactors().Count();
 
             Assert.AreEqual(result, 29);
+            Assert.AreEqual(result1, 1);
         }
 
         [TestMethod]

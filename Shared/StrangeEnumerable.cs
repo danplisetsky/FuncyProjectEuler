@@ -22,5 +22,13 @@ namespace Shared
                     yield return i;
             }
         }
+
+        public static IEnumerable<long> Range(long start, long end)
+        {
+            for ( long i = start; i <= end; i++ )
+            {
+                yield return i;
+            }
+        }
     }
 }

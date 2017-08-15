@@ -42,10 +42,17 @@ namespace Shared
             (long)Math.Floor(Math.Sqrt(x));
 
         public static IEnumerable<long> GetPrimeFactors(this long x) =>
-            StrangeEnumerable.RangePrimes(x.GetCeiling())
+            StrangeEnumerable.Range(2, x.GetCeiling())
             .Where(n => x.IsEvenlyDivisibleBy(n))
-            .SelectMany(n => (x / n).IsPrime() ? new[] { n, x / n } : new[] { n });
-        /* Since we're only checking the numbers from x to sqrt of x (in RangePrimes),
+            .SelectMany(n =>
+                (x / n).IsPrime()
+                ? n.IsPrime()
+                    ? n != x / n ? new[] { n, x / n } : new[] { n }
+                    : new[] { x / n }
+                : n.IsPrime()
+                    ? new[] { n }
+                    : new long[] { });        
+        /* Since we're only checking the numbers from x to sqrt of x,
          * it's necessary to also check the quotient for being a prime number,
          * e.g.: let's find all the prime factors of 10. Check that 2, 3 are factors (since sqrt of 10 is ~ 3). 2 is a factor,
          * hence check that 10 / 2 = 5 is prime. It is, so we add it to the resulting sequence. 3 is not a factor,
