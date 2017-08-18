@@ -137,5 +137,15 @@ namespace Tests
             Assert.AreEqual(result, 6);
             Assert.AreEqual(result1, 5);
         }
+
+        [TestMethod]
+        public void CollatzSequenceLength()
+        {
+            long n = 13;
+
+            int result = n.CollatzSequenceLength();
+
+            Assert.AreEqual(result, 10);
+        }
     }
 }

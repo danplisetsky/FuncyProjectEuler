@@ -73,6 +73,13 @@ namespace Shared
                 ? new[] { n, x / n }
                 : new[] { n });
 
+        public static int CollatzSequenceLength(this long x) =>
+            x == 1
+            ? 1
+            : x.IsEven()
+                ? 1 + CollatzSequenceLength(x / 2)
+                : 1 + CollatzSequenceLength(x * 3 + 1);
+
         #endregion long
 
         #region tuple
