@@ -30,5 +30,16 @@ namespace Shared
                 yield return i;
             }
         }
+
+        public static IEnumerable<(int a, int b)> RangeDuplet(int start, int end)
+        {
+            for ( int i = start; i < end; i++ )
+            {
+                for ( int j = start; j < end; j++ )
+                {
+                    yield return (i, j);
+                }
+            }
+        }
     }
 }

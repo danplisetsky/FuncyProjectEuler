@@ -54,7 +54,7 @@ namespace Shared
                     : new[] { x / n }
                 : n.IsPrime()
                     ? new[] { n }
-                    : new long[] { });        
+                    : new long[] { });
         /* Since we're only checking the numbers from x to sqrt of x,
          * it's necessary to also check the quotient for being a prime number,
          * e.g.: let's find all the prime factors of 10. Check that 2, 3 are factors (since sqrt of 10 is ~ 3). 2 is a factor,
@@ -63,6 +63,19 @@ namespace Shared
          */
 
         #endregion long
+
+        #region tuple
+
+        public static long Product(this (int a, int b, int c) triplet) =>
+            triplet.a * triplet.b * triplet.c;
+
+        public static bool IsPythagoreanTriplet(this (int a, int b, int c) triplet) =>
+            triplet.a.Pow(2) + triplet.b.Pow(2) == triplet.c.Pow(2);
+
+        public static (int a, int b, int c) DupletToTriplet(this (int a, int b) duplet, int sum) =>
+            (duplet.a, duplet.b, sum - duplet.a - duplet.b);
+
+        #endregion tuple
 
     }
 }

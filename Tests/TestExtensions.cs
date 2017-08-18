@@ -101,5 +101,39 @@ namespace Tests
 
             Assert.AreEqual(result, 256);
         }
+
+        [TestMethod]
+        public void TripletTupleProduct()
+        {
+            var triplet = (3, 4, 5);
+
+            long result = triplet.Product();
+
+            Assert.AreEqual(result, 60);
+        }
+
+        [TestMethod]
+        public void TupleIsPythagoreanTriplet()
+        {
+            var triplet = (3, 4, 5);
+            var triplet1 = (3, 4, 6);
+
+            bool result = triplet.IsPythagoreanTriplet();
+            bool result1 = triplet1.IsPythagoreanTriplet();
+
+            Assert.IsTrue(result);
+            Assert.IsFalse(result1);
+        }
+
+        [TestMethod]
+        public void TupleDupletToTriplet()
+        {
+            var duplet = (3, 4);
+            int sum = 12;
+
+            var result = duplet.DupletToTriplet(sum);
+
+            Assert.AreEqual(result.c, 5);
+        }
     }
 }
