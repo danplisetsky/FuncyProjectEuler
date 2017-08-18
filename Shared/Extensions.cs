@@ -62,6 +62,17 @@ namespace Shared
          * so the result is 2 and 5.
          */
 
+        public static int GetNumberOfFactors(this long x) =>
+            x.GetFactors().Count() + 2;
+
+        private static IEnumerable<long> GetFactors(this long x) =>
+            StrangeEnumerable.Range(2, x.GetCeiling())
+            .Where(n => x.IsEvenlyDivisibleBy(n))
+            .SelectMany(n =>
+                n != x / n
+                ? new[] { n, x / n }
+                : new[] { n });
+
         #endregion long
 
         #region tuple

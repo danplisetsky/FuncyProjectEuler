@@ -41,5 +41,16 @@ namespace Shared
                 }
             }
         }
+
+        public static IEnumerable<long> RangeTriangleNumber(long end)
+        {
+            for ( long i = 1; i <= end; i++ )
+            {
+                yield return GetTriangleNumber(i);
+            }
+        }
+
+        private static long GetTriangleNumber(long n) =>
+            (n * (n + 1)) / 2; // https://en.wikipedia.org/wiki/Triangular_number
     }
 }

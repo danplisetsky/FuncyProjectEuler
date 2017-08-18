@@ -135,5 +135,18 @@ namespace Tests
 
             Assert.AreEqual(result.c, 5);
         }
+
+        [TestMethod]
+        public void NumberOfFactors()
+        {
+            long n = 28;
+            long n1 = 16;
+
+            int result = n.GetNumberOfFactors();
+            int result1 = n1.GetNumberOfFactors();
+
+            Assert.AreEqual(result, 6);
+            Assert.AreEqual(result1, 5);
+        }
     }
 }
