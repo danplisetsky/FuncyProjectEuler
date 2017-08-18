@@ -21,12 +21,8 @@ namespace pn9
         }
 
         private static (int a, int b, int c) FindPythagoreanTripletForSumOf(int sum) =>
-            StrangeEnumerable.RangeDuplet(1, sum)
-            .FirstOrDefault(d => 
-                (d.a, d.b)
-                .DupletToTriplet(sum)
-                .IsPythagoreanTriplet())
-            .DupletToTriplet(sum);
+            StrangeEnumerable.RangeTripletForSum(1, sum)
+            .FirstOrDefault(t => t.IsPythagoreanTriplet());
 
 
 

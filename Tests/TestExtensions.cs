@@ -126,17 +126,6 @@ namespace Tests
         }
 
         [TestMethod]
-        public void TupleDupletToTriplet()
-        {
-            var duplet = (3, 4);
-            int sum = 12;
-
-            var result = duplet.DupletToTriplet(sum);
-
-            Assert.AreEqual(result.c, 5);
-        }
-
-        [TestMethod]
         public void NumberOfFactors()
         {
             long n = 28;

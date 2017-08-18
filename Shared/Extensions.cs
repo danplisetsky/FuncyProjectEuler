@@ -83,9 +83,6 @@ namespace Shared
         public static bool IsPythagoreanTriplet(this (int a, int b, int c) triplet) =>
             triplet.a.Pow(2) + triplet.b.Pow(2) == triplet.c.Pow(2);
 
-        public static (int a, int b, int c) DupletToTriplet(this (int a, int b) duplet, int sum) =>
-            (duplet.a, duplet.b, sum - duplet.a - duplet.b);
-
         #endregion tuple
 
     }

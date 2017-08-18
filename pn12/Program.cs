@@ -35,7 +35,7 @@ namespace pn12
         }
 
         private static long FirstTriangleNumberWithDivisorsOver(int divisors) =>
-            StrangeEnumerable.RangeTriangleNumber(long.MaxValue)
+            StrangeEnumerable.RangeTriangleNumbers(long.MaxValue)
             .FirstOrDefault(n => n.GetNumberOfFactors() > divisors);
     }
 }

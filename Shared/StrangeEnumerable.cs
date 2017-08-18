@@ -31,18 +31,18 @@ namespace Shared
             }
         }
 
-        public static IEnumerable<(int a, int b)> RangeDuplet(int start, int end)
+        public static IEnumerable<(int a, int b, int c)> RangeTripletForSum(int start, int sum)
         {
-            for ( int i = start; i < end; i++ )
+            for ( int i = start; i < sum; i++ )
             {
-                for ( int j = start; j < end; j++ )
+                for ( int j = start; j < sum; j++ )
                 {
-                    yield return (i, j);
+                    yield return (i, j, sum - i - j);
                 }
             }
         }
 
-        public static IEnumerable<long> RangeTriangleNumber(long end)
+        public static IEnumerable<long> RangeTriangleNumbers(long end)
         {
             for ( long i = 1; i <= end; i++ )
             {
