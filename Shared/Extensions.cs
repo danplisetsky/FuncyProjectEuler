@@ -22,6 +22,10 @@ namespace Shared
         public static double Pow(this int x, int pow) =>
             Math.Pow(x, pow);
 
+        public static bool IsNarcissistic(this int x, int pow) =>
+            x.ToString()
+            .Select(c => Convert.ToInt32(Math.Pow(Char.GetNumericValue(c), pow))).Sum() == x;
+
         #endregion int
 
         #region long
