@@ -89,6 +89,9 @@ namespace Shared
                 ? 1 + CollatzSequenceLength(x / 2)
                 : 1 + CollatzSequenceLength(x * 3 + 1);
 
+        public static bool IsAbundant(this long x) =>
+            x.GetFactorsNotIncluding().Sum() > x;
+
         #endregion long
 
         #region tuple

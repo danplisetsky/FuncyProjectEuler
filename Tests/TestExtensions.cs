@@ -159,5 +159,15 @@ namespace Tests
             Assert.IsTrue(result);
             Assert.IsFalse(result2);
         }
+
+        [TestMethod]
+        public void IsAbundant()
+        {
+            long n = 12;
+
+            bool result = n.IsAbundant();
+
+            Assert.IsTrue(result);
+        }
     }
 }
