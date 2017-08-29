@@ -147,5 +147,17 @@ namespace Tests
 
             Assert.AreEqual(result, 10);
         }
+
+        [TestMethod]
+        public void IsAmicablePair()
+        {
+            long a = 220, b = 284, c = 10;
+
+            bool result = a.IsAmicablePairOf(b);
+            bool result2 = a.IsAmicablePairOf(c);
+
+            Assert.IsTrue(result);
+            Assert.IsFalse(result2);
+        }
     }
 }

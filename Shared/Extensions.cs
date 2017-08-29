@@ -63,15 +63,24 @@ namespace Shared
          */
 
         public static int GetNumberOfFactors(this long x) =>
-            x.GetFactors().Count() + 2;
+            x.GetFactors().Count();
 
         private static IEnumerable<long> GetFactors(this long x) =>
-            StrangeEnumerable.Range(2, x.GetCeiling())
+            StrangeEnumerable.Range(1, x.GetCeiling())
             .Where(n => x.IsEvenlyDivisibleBy(n))
             .SelectMany(n =>
                 n != x / n
                 ? new[] { n, x / n }
                 : new[] { n });
+
+        public static IEnumerable<long> GetFactorsNotIncluding(this long x) =>
+            x.GetFactors().Where(f => f != x);
+
+        public static bool IsAmicablePairOf(this long a, long b) =>
+            a == b
+                ? false
+                : a.GetFactorsNotIncluding().Sum() == b &&
+                b.GetFactorsNotIncluding().Sum() == a;
 
         public static int CollatzSequenceLength(this long x) =>
             x == 1
